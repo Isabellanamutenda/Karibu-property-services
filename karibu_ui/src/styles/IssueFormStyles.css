@@ -1,0 +1,58 @@
+.issue-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.issue-form h3 {
+  margin-bottom: 1rem;
+  color: #0077cc;
+}
+
+.issue-form form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.issue-form label {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.issue-form input,
+.issue-form textarea {
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.issue-form button {
+  margin-top: 1.5rem;
+  padding: 0.7rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.success {
+  margin-top: 1rem;
+  color: green;
+  font-weight: bold;
+}
+
+.link-text {
+  margin-top: 1rem;
+  color: #0077cc;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}

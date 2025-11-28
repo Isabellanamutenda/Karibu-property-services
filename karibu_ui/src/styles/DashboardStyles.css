@@ -1,0 +1,324 @@
+/* --- GLOBAL RESET & BASE --- */
+body {
+  margin: 0;
+  background-color: #1c1c1c;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* --- 1. TOP-LEVEL DASHBOARD WRAPPER --- */
+.dashboard {
+  margin-top: 60px;
+  display: flex;
+  min-height: calc(100vh - 60px);
+  width: 100%;
+}
+
+/* --- 2. FIXED HEADER --- */
+.dashboard-header {
+    width: 100%;
+    height: 60px;
+    background-color: #2a2a2a; /* Dark background */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between; /* Pushes branding to left, profile to right */
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.dashboard-header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.dashboard-header .profile-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard-header .profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.profile-icon {
+    font-size: 1.8em;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    /* Styles for the icon itself */
+}
+
+/* Profile Icon Container (Needs position: relative for dropdown) */
+.profile-menu-container-right {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+}
+/* Dropdown Menu Positioning (Anchors to Top Right) */
+.dropdown-menu-right {
+    position: absolute;
+    top: 45px; 
+    right: 0;   /* CRITICAL: Anchors to the right edge */
+    width: 200px;
+    background-color: white;
+    color: #2c3e50; /* Dark text on white background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* --- 3. BODY STRUCTURE --- */
+.body-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* --- 4. MAIN PANEL --- */
+.main-panel-container {
+  flex-grow: 1;
+  padding: 40px 50px;
+  background-color: #1c1c1c;
+}
+
+/* --- 5. TOP BANNER --- */
+.top-banner {
+  background-color: #2e2e2e;
+  color: #cfcfcf;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid #444;
+}
+
+/* --- 6. FORM CARD --- */
+.renter-edit-form,
+.ticket-queue-panel {
+  background-color: #2a2a2a;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+  color: #e0e0e0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- 7. FORM ELEMENTS --- */
+.renter-edit-form label {
+  color: #bdbdbd;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  display: block;
+  font-weight: 500;
+}
+
+.renter-edit-form input[type="text"],
+.renter-edit-form input[type="date"],
+.renter-edit-form textarea {
+  background-color: #3a3a3a;
+  color: #f5f5f5;
+  border: 1px solid #555;
+  padding: 12px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* --- 8. BUTTONS --- */
+.renter-edit-form .update-button {
+  background-color: #4CAF50;
+  color: black;
+  font-weight: bold;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.renter-edit-form .update-button:hover {
+  background-color: #66BB6A;
+}
+
+.renter-edit-form .cancel-button {
+  background-color: #757575;
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Panel Title */
+.ticket-list-panel h3 {
+    background-color: #2a2a2a; /* Dark gray background for the panel card */
+    padding: 25px;
+    border-radius: 8px;
+}
+
+/* Search Input Styling */
+.search-input-dark {
+    width: 40%; /* Control the width of the search bar */
+    padding: 10px 15px;
+    margin-bottom: 25px; 
+    background-color: #444; 
+    color: white;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 1em;
+}
+.search-input-dark::placeholder {
+    color: #999; /* Light gray placeholder text */
+}
+
+/* Status Badges (Ensure they look clean and readable) */
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Main Table Styling */
+.data-table {
+    width: 100%;
+    border-collapse: collapse; /* Essential: removes default double borders */
+    margin-top: 20px;
+    background-color: #2a2a2a; /* Table background should match the panel */
+    color: #e0e0e0; /* Light text color */
+}
+
+.data-table thead {
+    /* Strong contrast for headers */
+    background-color: #3a3a3a; /* Darker background than the table body */
+}
+
+.data-table th {
+    padding: 15px 20px; /* Increased top/bottom padding for space */
+    text-align: left;
+    color: #90ee90; /* Light Green/Teal accent color for high contrast */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em; 
+    border-bottom: 2px solid #4CAF50; /* A clear, accented bottom border */
+}
+
+/* Data Cell Styling */
+.data-table td {
+    padding: 12px 20px; /* Generous padding for spacious look */
+    border-bottom: 1px solid #444; /* Dark separation line */
+    font-size: 0.95em; 
+}
+
+/* Row Hover Effect */
+.data-table tbody tr:hover {
+    background-color: #383838; /* Subtle visual feedback on hover */
+}
+
+.ticket-list-panel h3 {
+    color: #bdbdbd; 
+    font-size: 1.6em;
+    margin-bottom: 25px;
+}
+
+/* Search Input Styling */
+.search-input-dark {
+    width: 40%; 
+    padding: 10px 15px;
+    margin-bottom: 25px; 
+    background-color: #444; 
+    color: white;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 1em;
+}
+.search-input-dark::placeholder {
+    color: #999; /* Light gray placeholder text */
+}
+
+.data-table th {
+    padding: 15px 20px; /* CRITICAL: Adds space around headers */
+    text-align: left;
+    /* ... other styling ... */
+}
+
+/* 2. Data Cell Styling */
+.data-table td {
+    padding: 12px 20px; /* CRITICAL: Adds space around data cells */
+    border-bottom: 1px solid #444; 
+}
+
+/* --- Modal Overlay (Dim Background) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* --- Modal Content Box --- */
+.modal-content {
+    background-color: #2a2a2a; /* Dark background matching the panel */
+    color: #e0e0e0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: #4CAF50; /* Green accent color */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+/* Make the Ticket ID clickable */
+.ticket-id-link {
+    cursor: pointer;
+    color: #4CAF50; 
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.clickable-id {
+    cursor: pointer;
+    color: #90ee90; /* Green highlight */
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.modal-content {
+    background-color: #2a2a2a; /* Dark background */
+    color: #e0e0e0;
+    /* ... other styles ... */
+}

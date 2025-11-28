@@ -1,0 +1,47 @@
+/* src/styles/SidebarStyles.css */
+
+.sidebar {
+    width: 200px; /* Fixed width matching the image size */
+    background-color: #2a2a2a; /* Matches header bar */
+    color: #e0e0e0;
+    padding-top: 0;
+}
+
+.sidebar-heading {
+    color: #bdbdbd;
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 15px 20px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #444;
+}
+
+/* Navigation Items (The Buttons) */
+.nav-item {
+    display: block; /* Makes the item take full width */
+    padding: 10px 20px;
+    margin-bottom: 5px; /* Spacing between buttons */
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: #e0e0e0;
+    transition: background-color 0.2s;
+}
+
+
+/* Highlighted (Hover/Active) State */
+.nav-item:hover {
+    background-color: #444; 
+}
+
+/* Active State (Matches the yellowish-orange color in your image) */
+.nav-item.active {
+    background-color: #4CAF50; /* Green highlight accent */
+    color: #1c1c1c;
+    font-weight: bold;
+}
+.nav-item.active:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
