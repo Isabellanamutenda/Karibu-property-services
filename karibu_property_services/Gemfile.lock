@@ -359,7 +359,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
-  mysql2
+  mysql2 (>= 0.4.4)
   pg (~> 1.1)
   propshaft
   puma (>= 5.0)
