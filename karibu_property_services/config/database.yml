@@ -31,3 +31,4 @@ production:
 
   # The local database name is not used, as the URL specifies the production database.
   database: karibu_system_production
+  
