@@ -15,20 +15,8 @@ test:
   <<: *default
   database: karibu_system_test
 
-# --- PRODUCTION CONFIGURATION (FOR RENDER/PLANETSCALE) ---
 production:
-  # CRITICAL: This pulls settings (like adapter, pool size) from the 'default' block.
-  # The database adapter is currently set to mysql2 in *default*.
   <<: *default
-  
-  # CRITICAL: This OVERRIDES the local host, username, and password defined in *default*.
-  # The 'url' parameter instructs Rails to use the full connection string from the 
-  # DATABASE_URL environment variable provided by Render/PlanetScale.
-  url: <%= ENV['DATABASE_URL'] %> 
-  
-  # Ensure the adapter is explicitly set to mysql2 if your default adapter is set to something else.
-  adapter: mysql2 
-
-  # The local database name is not used, as the URL specifies the production database.
-  database: karibu_system_production
-  
+  database: karibu_system_development
+  username: root
+  password: Mamakobe254!
