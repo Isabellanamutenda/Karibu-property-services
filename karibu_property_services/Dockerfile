@@ -6,9 +6,9 @@ RUN apt-get update -qq && apt-get install -y \
   curl \
   gnupg \
   default-mysql-client \
-  libmysqlclient-dev
+  libmariadb-dev
 
-# Install Node.js and Yarn
+# Install Node.js (LTS) and Yarn
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
   && apt-get install -y nodejs \
   && npm install -g yarn
