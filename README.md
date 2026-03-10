@@ -20,13 +20,13 @@ FIFO Implementation
 The system ensures fairness by utilizing a First-In, First-Out algorithm. When a staff member views the "Pending" list, the Rails backend queries the database using order(created_at: :asc), ensuring the oldest complaints are addressed first.
 
 Database Schema
-The project uses a relational database structure:
+- The project uses a relational database structure:
 
-Renters: Stores tenant profiles and authentication digests.
+- Renters: Stores tenant profiles and authentication digests.
 
-Issues: Stores the raw complaint data linked to a Renter.
+- Issues: Stores the raw complaint data linked to a Renter.
 
-Tickets: A tracking layer linked to an Issue that manages the lifecycle (Open, In-Progress, Resolved).
+- Tickets: A tracking layer linked to an Issue that manages the lifecycle (Open, In-Progress, Resolved).
 
 ## Built With
 
