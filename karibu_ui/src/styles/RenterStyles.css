@@ -191,7 +191,7 @@
 }
 
 .action-button.primary-button:hover:not(:disabled) {
-    background-color: #3498db;
+    background-color: #4CAF50;
 }
 
 /* --- 7. Queue Status Panel --- */
@@ -203,3 +203,113 @@
     border-radius: 4px;
 }
 /* ... (Keep existing queue-status-panel styles) ... */
+
+/* src/styles/RenterStyles.css - Color Update Only */
+
+/* --- 2. Header Branding --- */
+.renter-branding h1 {
+    font-size: 1.5em;
+    margin: 0;
+    /* Changed to #4CAF50 to match Staff Portal Branding */
+    color: #4CAF50; 
+}
+
+/* --- 3. Main Content Greeting --- */
+.main-greeting {
+    font-size: 1.8em;
+    /* Changed heading color */
+    color: #4CAF50; 
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+/* --- 4. Complaint Form Button --- */
+.complaint-form-container button {
+    /* Changed from Blue to #4CAF50 */
+    background-color: #4CAF50; 
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 25px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.complaint-form-container button:hover:not(:disabled) {
+    /* Slightly darker green for hover effect */
+    background-color: #45a049; 
+}
+
+/* --- 6. Generic Action Buttons --- */
+.action-button.primary-button {
+    /* Changed from Blue to #4CAF50 */
+    background-color: #4CAF50; 
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.action-button.primary-button:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+/* --- 7. Queue Status Panel Border --- */
+.queue-status-panel {
+    background-color: #ecf0f1;
+    /* Updated border to match theme green */
+    border-left: 5px solid #4CAF50; 
+    padding: 20px;
+    border-radius: 4px;
+}
+
+/* Add these to your existing RenterStyles.css */
+
+.ticket-table-wrapper {
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ticket-table th {
+    background-color: #f8f9fa;
+    color: #4CAF50; /* The Green Heading */
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #4CAF50;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+.ticket-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+/* Status Badges */
+.status-open {
+    color: #f39c12; /* Orange for Open */
+    font-weight: bold;
+}
+
+.status-closed {
+    color: #4CAF50; /* Green for Closed */
+    font-weight: bold;
+}

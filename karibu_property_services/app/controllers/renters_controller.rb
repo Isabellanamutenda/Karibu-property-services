@@ -54,32 +54,40 @@ def status
 end
   
   # POST /renters (Renter Signup)
-  def create
-    @renter = Renter.new(renter_signup_params)
+def create
+    @renter = Renter.new(
+      Renter_Name: params[:name],
+      Renter_Email: params[:email],
+      Renter_HseNumber: params[:house_number],
+      Renter_IDNumber: params[:id_number],
+      Renter_Phone: params[:phone],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation]
+    )
     
     if @renter.save
-      render json: { success: true, message: "Renter account created successfully! Please log in.", redirect: "/renter/login" }, status: :created
+      render json: { success: true, message: "Renter registered successfully!" }, status: :created
     else
-      render json: { success: false, error: @renter.errors.full_messages.join(", ") }, status: :unprocessable_entity
+      render json: { success: false, errors: @renter.errors.full_messages }, status: :unprocessable_entity
     end
   end
   
   # POST /renters/login
-  def login
-    @renter = Renter.find_by(Renter_IDNumber: params[:renter_id_number])
-    
-    if @renter && @renter.authenticate_Renter_Password(params[:password])
-      render json: {
-        success: true,
-        message: "Welcome, #{@renter.Renter_Name}!",
-        redirect: "/renter/dashboard",
-        renter_id: @renter.Renter_IDNumber,
-        renter_name: @renter.Renter_Name
-      }, status: :ok
-    else
-      render json: { success: false, error: "Invalid ID Number or Password." }, status: :unauthorized
-    end
+def login
+  @renter = Renter.find_by(Renter_IDNumber: params[:renter_id_number])
+  
+  if @renter && @renter.authenticate_Renter_Password(params[:password])
+    render json: {
+      success: true,
+      message: "Welcome, #{@renter.Renter_Name}!",
+      renter_id: @renter.Renter_IDNumber,
+      # MAKE SURE THIS KEY MATCHES YOUR FRONTEND
+      renter_name: @renter.Renter_Name 
+    }, status: :ok
+  else
+    render json: { success: false, error: "Invalid ID Number or Password." }, status: :unauthorized
   end
+end
 
   # POST /renters/:id/lodge_complaint
   def lodge_complaint
@@ -161,6 +169,11 @@ def authenticate_ca!
     return false
   end
   true
+end
+
+def renter_params
+  # Change these to match the "Parameters" list in your error log
+  params.permit(:name, :email, :house_number, :id_number, :phone, :password, :password_confirmation)
 end
   
   # Strong Parameters for Complaint Lodging

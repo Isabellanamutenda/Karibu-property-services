@@ -4,32 +4,27 @@ const API_BASE_URL = "http://localhost:3000";
 // Fetches all data required for the CA dashboard in one go
 export const fetchDashboardData = async () => {
     try {
-        // Fetch all three datasets concurrently for speed
         const [rentersRes, ticketsRes, reportRes] = await Promise.all([
             fetch(`${API_BASE_URL}/renters`),
             fetch(`${API_BASE_URL}/tickets`),
             fetch(`${API_BASE_URL}/tickets/report`),
         ]);
 
-        if (!rentersRes.ok || !ticketsRes.ok || !reportRes.ok) {
-            // Check for specific error status (e.g., 401 Unauthorized)
-            return { success: false, error: "Failed to fetch one or more dashboard data streams." };
-        }
-
         const renters = await rentersRes.json();
         const tickets = await ticketsRes.json();
         const report = await reportRes.json();
 
+        // DEBUG: Check this in your Browser Console (F12)
+        console.log("RAW RENTERS FROM BACKEND:", renters);
+
         return {
             success: true,
-            renters: renters,
+            renters: Array.isArray(renters) ? renters : (renters.data || []), 
             tickets: tickets,
             report: report
         };
-
     } catch (error) {
-        console.error("Network error fetching dashboard data:", error);
-        return { success: false, error: "Cannot connect to the backend server." };
+        return { success: false, error: error.message };
     }
 };
 

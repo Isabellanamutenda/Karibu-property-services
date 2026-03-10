@@ -1,30 +1,40 @@
-# app/models/renter.rb
-
 class Renter < ApplicationRecord
   self.table_name = 'Renter_InfoTable' 
   self.primary_key = 'Renter_IDNumber'
   
-  # SECURITY: This creates the authentication methods (requires Renter_Password_digest column)
-  has_secure_password :Renter_Password 
+  # 1. SECURITY: Initialize has_secure_password without validations 
+  # (since we are mapping the column manually)
+  has_secure_password validations: false
 
-  # Relationship for Complaint Lodging
+  # 2. Relationship for Complaint Lodging
   has_many :issues, foreign_key: 'Renter_IDNumber', primary_key: 'Renter_IDNumber'
 
-  # --- NEW METHOD: updateRenterInfo() (Public Instance Method) ---
-  
-  # Fulfills lecturer's requirement for the Renter class to own the update logic.
-  # This method is called by the CustomerAssistantsController#update.
+  # 3. MANUAL PASSWORD MAPPING
+  # This fixes the "NoMethodError (undefined method password_digest=)"
+  def password=(unencrypted_password)
+    if unencrypted_password.present?
+      @password = unencrypted_password
+      # Manually hash and save to your custom column
+      self.Renter_Password_digest = BCrypt::Password.create(unencrypted_password)
+    end
+  end
+
+  # 4. CUSTOM AUTHENTICATION METHOD
+  # This fixes the login logic to look at your custom column
+  def authenticate_Renter_Password(unencrypted_password)
+    if BCrypt::Password.new(self.Renter_Password_digest) == unencrypted_password
+      self
+    else
+      false
+    end
+  end
+
+  # --- NEW METHOD: updateRenterInfo() ---
   def updateRenterInfo(new_data)
-    # ActiveRecord update method to apply changes to the Renter record
     self.update(new_data)
   end
 
-  # --- VALIDATIONS (Backend Logic) ---
-  validates :Renter_IDNumber, presence: true, uniqueness: true
-  validates :Renter_HseNumber, presence: true, uniqueness: true
-  validates :Renter_Email, presence: true, uniqueness: true
-  validates :Renter_Name, presence: true
-  validates :Renter_Phone, presence: true
-  
-  # Renter_Password validation is handled by has_secure_password
+  # --- VALIDATIONS ---
+  validates :Renter_Name, :Renter_Email, :Renter_IDNumber, :Renter_HseNumber, :Renter_Phone, presence: true
+  validates :Renter_IDNumber, uniqueness: true
 end

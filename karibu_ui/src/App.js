@@ -15,6 +15,7 @@ import RenterSignupPage from './components/pages/auth/RenterSignupPage'; // Adju
 import StaffDashboard from './components/pages/dashboard/StaffDashboard';
 import RenterDashboard from './components/pages/renter/RenterDashboard'; 
 import FIFOQueuePage from './components/pages/dashboard/FIFOQueuePage';
+import FollowUpPage from './components/pages/renter/FollowUpPage';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         
         <Route path="/staff/dashboard" element={<StaffDashboard />} />
         <Route path="/renter/dashboard" element={<RenterDashboard />} />
+        <Route path="/renter/follow-up" element={<FollowUpPage />} />
         {/* NEW: Dedicated Ticket Queue Page */}
         <Route path="/tickets" element={<FIFOQueuePage />} />
         

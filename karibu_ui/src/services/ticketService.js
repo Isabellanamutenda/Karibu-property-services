@@ -63,4 +63,16 @@ export const submitFollowUp = async (ticketNumber, followUpData) => {
         console.error("Follow-up network error:", error);
         return { success: false, error: "Cannot connect to backend server." };
     }
+    
+};
+// src/services/ticketService.js
+export const fetchRenterTickets = async (renterId) => {
+    try {
+        const response = await fetch(`http://localhost:3000/tickets?renter_id=${renterId}`);
+        if (!response.ok) throw new Error('Failed to fetch tickets');
+        return await response.json();
+    } catch (error) {
+        console.error("API Error:", error);
+        return [];
+    }
 };

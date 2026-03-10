@@ -85,6 +85,18 @@ class TicketsController < ApplicationController
     end
     render json: ticket_data, status: :ok
   end
+
+  # app/controllers/tickets_controller.rb
+# def index
+#   # If a renter_id is passed in the URL params, filter the tickets
+#   if params[:renter_id]
+#     @tickets = Ticket.where(renter_id: params[:renter_id]).order(created_at: :desc)
+#   else
+#     @tickets = Ticket.all
+#   end
+  
+#   render json: @tickets
+# end
   
   # GET /tickets/report (Report Data)
   def report
