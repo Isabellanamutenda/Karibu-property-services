@@ -4,8 +4,9 @@
 ## Table of Contents
 
 - [About Project](#about-project)
-- [Architecture & Logic] (#Architecture-&-Logic)
+- [Architecture & Logic](#architecture-logic)
 - [Built With](#built-with)
+- [Installation & Setup](#installation-setup)
 - [Contributing](#contributing)
 - [Author](#author)
 - [Show your support](#show-your-support)
