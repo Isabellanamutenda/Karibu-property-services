@@ -38,6 +38,7 @@ Database Schema
 
 
 ## ⚙️ Installation & Setup
+
 ## Backend (Rails)
 Navigate to the server folder: cd karibu-property-services
 
@@ -59,7 +60,7 @@ Start the application: npm start
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Isabellanamutenda/Final-react-capstone-project/issues)
+Feel free to check the [issues page](https://github.com/Isabellanamutenda/Karibu-property-services.git)
 
   1. Fork the Project
   2. Create your Feature Branch (`git checkout -b feature/newFeature`)
