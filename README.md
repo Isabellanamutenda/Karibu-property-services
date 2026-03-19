@@ -75,7 +75,6 @@ Feel free to check the [issues page](https://github.com/Isabellanamutenda/Karibu
 - GitHub: [Isabellanamutenda](https://github.com/Isabellanamutenda)
 - LinkedIn: [Isabella Namutenda](https://www.linkedin.com/in/isabella-namutenda/)
 
-
 ## Show your support
 
 Give a ⭐️ if you like this project!
