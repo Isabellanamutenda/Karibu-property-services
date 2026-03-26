@@ -11,11 +11,11 @@
 - [Author](#author)
 - [Show your support](#show-your-support)
 
-## About Project
+## About Project.
 
 Karibu Property Services is a full-stack Management Information System (MIS) designed to digitize the interaction between tenants and property management. It replaces informal, manual complaint processes with a structured, ticket-based workflow to ensure transparency, accountability, and efficiency.
 
-## Architecture & Logic
+## Architecture & Logic.
 FIFO Implementation
 The system ensures fairness by utilizing a First-In, First-Out algorithm. When a staff member views the "Pending" list, the Rails backend queries the database using order(created_at: :asc), ensuring the oldest complaints are addressed first.
 
